@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LÉVIA — Мода за всеки ден</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet"
+>
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="top"></div>
+
+    <!-- Навигация -->
+<header class="navbar">
+
+    <a href="#top" class="logo">
+        LÉVIA
+    </a>
+
+    <nav class="nav-links">
+
+        <a href="index.html">Начало</a>
+
+        <a href="women.html">Дамски</a>
+
+        <a href="men.html">Мъжки</a>
+
+        <a href="new-collection.html">Нова колекция</a>
+
+        <a href="contact.html">Контакти</a>
+
+    </nav>
+
+    <div class="nav-actions">
+
+        <button
+    class="search-button"
+    aria-label="Търсене"
+    type="button"
+>
+    ⌕
+</button>
+
+
+        <button aria-label="Любими">
+            ♡
+        </button>
+
+        <button aria-label="Количка">
+            🛒
+        </button>
+
+        <button
+            class="menu-toggle"
+            aria-label="Отвори менюто"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+<div class="search-panel" id="searchPanel">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Търси продукт..."
+        autocomplete="off"
+    >
+
+    <button
+        id="closeSearch"
+        type="button"
+        aria-label="Затвори"
+    >
+        ✕
+    </button>
+
+</div>
+    <!-- Hero секция -->
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+                <p class="hero-small-title">НОВА КОЛЕКЦИЯ 2026</p>
+
+                <h1>
+                    Стилът започва
+                    <span>от теб.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Открий внимателно подбрана колекция от модерни
+                    дрехи, създадени за твоя ежедневен стил.
+                </p>
+
+                <a href="#collection" class="hero-button">
+                    Разгледай колекцията
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- Категории -->
+        <section class="categories">
+
+            <div class="section-heading">
+                <p>ОТКРИЙ СВОЯ СТИЛ</p>
+                <h2>Категории</h2>
+            </div>
+
+            <div class="category-grid">
+
+                <a href="#collection" class="category-card" data-category="women">
+                    <div class="category-image category-women"></div>
+                    <div class="category-overlay">
+                        <h3>Дамски</h3>
+                        <span>Разгледай →</span>
+                    </div>
+                </a>
+
+                <a href="#collection" class="category-card" data-category="men">
+                    <div class="category-image category-men"></div>
+                    <div class="category-overlay">
+                        <h3>Мъжки</h3>
+                        <span>Разгледай →</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Продукти -->
+        <section class="collection" id="collection">
+
+            <div class="section-heading collection-heading">
+                <div>
+                    <p>ПОДБРАНО ЗА ТЕБ</p>
+                    <h2>Нова колекция</h2>
+                </div>
+
+                <a href="#" class="view-all">
+                    Виж всички →
+                </a>
+            </div>
+
+
+            <div
+    class="product-grid"
+    id="productGrid"></div>
+
+        </section>
+
+
+        <!-- Промо секция -->
+        <section class="promo">
+
+            <div class="promo-content">
+
+                <p>СПЕЦИАЛНО ПРЕДЛОЖЕНИЕ</p>
+
+                <h2>
+                    Твоят нов стил
+                    започва с -20%.
+                </h2>
+
+                <a href="#" class="hero-button">
+                    Пазарувай сега
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Защо LÉVIA -->
+<section class="benefits">
+
+    <div class="section-heading">
+        <p>ЗАЩО LÉVIA</p>
+        <h2>Създадено с внимание</h2>
+    </div>
+
+    <div class="benefits-grid">
+
+        <div class="benefit">
+            <div class="benefit-icon">✦</div>
+
+            <h3>Качествени материали</h3>
+
+            <p>
+                Подбираме материали, които съчетават
+                комфорт, качество и модерен стил.
+            </p>
+        </div>
+
+
+        <div class="benefit">
+            <div class="benefit-icon">♡</div>
+
+            <h3>Създадено за теб</h3>
+
+            <p>
+                Изчистени дизайни, които лесно се
+                превръщат в част от твоя личен стил.
+            </p>
+        </div>
+
+
+        <div class="benefit">
+            <div class="benefit-icon">↗</div>
+
+            <h3>Бърза доставка</h3>
+
+            <p>
+                Получи любимите си продукти бързо
+                и удобно до избран от теб адрес.
+            </p>
+        </div>
+
+
+        <div class="benefit">
+            <div class="benefit-icon">↩</div>
+
+            <h3>Лесно връщане</h3>
+
+            <p>
+                Ако продуктът не е това, което очакваш,
+                можеш лесно да го върнеш.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+    </main>
+
+    <!-- Контакти -->
+<section class="contact-section" id="contact">
+
+    <div class="section-heading">
+        <p>СВЪРЖИ СЕ С НАС</p>
+        <h2>Контакти</h2>
+    </div>
+
+    <div class="contact-content">
+
+        <div>
+            <h3>Имейл</h3>
+            <p>hello@levia.bg</p>
+        </div>
+
+        <div>
+            <h3>Телефон</h3>
+            <p>+359 888 123 456</p>
+        </div>
+
+        <div>
+            <h3>Работно време</h3>
+            <p>Понеделник – Петък<br>09:00 – 18:00</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            LÉVIA
+        </div>
+
+        <div class="footer-links">
+            <a href="#">За нас</a>
+            <a href="#">Доставка</a>
+            <a href="#">Връщане</a>
+            <a href="#">Контакти</a>
+        </div>
+
+        <p>
+            © 2026 LÉVIA. Всички права запазени.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
