@@ -1249,3 +1249,201 @@ h3 {
     }
 
 }
+
+/* =========================================
+   CONTACT PAGE
+========================================= */
+
+.contact-page {
+    min-height: 750px;
+
+    padding: 100px 8%;
+
+    background: #f8f7f4;
+}
+
+
+/* Заглавие */
+
+.contact-page .section-heading {
+    max-width: 700px;
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+.contact-page .section-heading p {
+    color: #8a6a52;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+.contact-page .section-heading h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(50px, 7vw, 80px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+
+/* Контактни карти */
+
+.contact-page .contact-content {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    text-align: center;
+}
+
+
+.contact-page .contact-content > div {
+    padding: 50px 30px;
+
+    background: #eeece7;
+
+    border: 1px solid #e2dfd9;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.contact-page .contact-content > div:hover {
+    transform: translateY(-6px);
+
+    background: #e8e5df;
+}
+
+
+/* Икони */
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d0cbc3;
+
+    border-radius: 50%;
+
+    color: #8a6a52;
+
+    font-size: 22px;
+}
+
+
+/* Заглавия */
+
+.contact-page .contact-content h3 {
+    margin-bottom: 15px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    color: #171717;
+}
+
+
+/* Информация */
+
+.contact-page .contact-content p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* Линкове */
+
+.contact-page .contact-content a {
+    color: #777;
+
+    transition: color 0.3s ease;
+}
+
+.contact-page .contact-content a:hover {
+    color: #8a6a52;
+}
+
+
+/* =========================================
+   CONTACT PAGE — ADDITIONAL INFO
+========================================= */
+
+.contact-intro {
+    max-width: 650px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   CONTACT PAGE — MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .contact-page {
+        padding: 75px 5%;
+    }
+
+    .contact-page .section-heading {
+        margin-bottom: 50px;
+    }
+
+    .contact-page .contact-content {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .contact-page .contact-content > div {
+        padding: 40px 25px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .contact-page .section-heading h1 {
+        font-size: 48px;
+    }
+
+}

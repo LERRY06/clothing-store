@@ -8,35 +8,153 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html">
-                    <!-- Put your logo here -->
-                </a>
-            </div>
+     <!-- Навигация -->
+<header class="navbar">
 
-            <ul>
-                <li><a href="index.html">Начало</a></li>
-                <li><a href="women.html">Жени</a></li>
-                <li><a href="men.html">Мъже</a></li>
-                <li><a href="new-collection.html">Нова колекция</a></li>
-                <li><a href="contact.html">Контакти</a></li>
-            </ul>
-        </nav>
-    </header>
+    <a href="index.html" class="logo">
+        LÉVIA
+    </a>
+
+    <nav class="nav-links">
+
+        <a href="index.html">Начало</a>
+
+        <a href="women.html">Дамски</a>
+
+        <a href="men.html">Мъжки</a>
+
+        <a href="new-collection.html">Нова колекция</a>
+
+        <a href="contact.html">Контакти</a>
+
+    </nav>
+
+    <div class="nav-actions">
+
+        <button
+            class="search-button"
+            aria-label="Търсене"
+            type="button"
+        >
+            ⌕
+        </button>
+
+        <button aria-label="Любими">
+            ♡
+        </button>
+
+        <button aria-label="Количка">
+            🛒
+        </button>
+
+        <button
+            class="menu-toggle"
+            aria-label="Отвори менюто"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+<div class="search-panel" id="searchPanel">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Търси продукт..."
+        autocomplete="off"
+    >
+
+    <button
+        id="closeSearch"
+        type="button"
+        aria-label="Затвори"
+    >
+        ✕
+    </button>
+
+</div>
+
 
     <main>
-        <section class="contact">
+
+    <section class="contact-page">
+
+        <div class="section-heading">
+
+            <p>СВЪРЖИ СЕ С НАС</p>
+
             <h1>Контакти</h1>
 
-            <p>Свържете се с нас:</p>
+        </div>
 
-            <p><strong>Имейл:</strong> example@email.com</p>
-            <p><strong>Телефон:</strong> +359 88 123 4567</p>
-            <p><strong>Адрес:</strong> София, България</p>
-        </section>
-    </main>
+
+        <p class="contact-intro">
+            Имаш въпрос или се нуждаеш от помощ?
+            Свържи се с нас и ще се радваме да ти помогнем.
+        </p>
+
+
+        <div class="contact-content">
+
+            <div>
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+                <h3>Имейл</h3>
+
+                <p>
+                    <a href="mailto:hello@levia.bg">
+                        hello@levia.bg
+                    </a>
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="contact-icon">
+                    ☎
+                </div>
+
+                <h3>Телефон</h3>
+
+                <p>
+                    <a href="tel:+359888123456">
+                        +359 888 123 456
+                    </a>
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="contact-icon">
+                    ◷
+                </div>
+
+                <h3>Работно време</h3>
+
+                <p>
+                    Понеделник – Петък<br>
+                    09:00 – 18:00
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
 
 </body>
 </html>
