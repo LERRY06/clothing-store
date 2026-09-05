@@ -1,80 +1,56 @@
-<!DOCTYPE html> <html lang="bg"> <head>
+<!DOCTYPE html>
+<html lang="bg">
+<head>
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LÉVIA — Резултати от търсене</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
-    crossorigin
->
+    crossorigin>
 
 <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
-    rel="stylesheet"
->
+    rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
-</head> <body> <!-- ========================================= NAVIGATION ========================================= --> <header class="navbar">
-<a href="index.html" class="logo">
-    LÉVIA
-</a>
+</head>
+<body>
+<!-- NAVIGATION-->
+<header class="navbar">
 
-
-<nav class="nav-links">
-
-    <a href="index.html">
-        Начало
+    <a href="index.html" class="logo">
+        LÉVIA
     </a>
 
-    <a href="women.html">
-        Дамски
-    </a>
+    <nav class="nav-links">
+        <a href="index.html">Начало</a>
+        <a href="women.html">Дамски</a>
+        <a href="men.html">Мъжки</a>
+        <a href="new-collection.html">Нова колекция</a>
+        <a href="contact.html">Контакти</a>
+    </nav>
 
-    <a href="men.html">
-        Мъжки
-    </a>
-
-    <a href="new-collection.html">
-        Нова колекция
-    </a>
-
-    <a href="contact.html">
-        Контакти
-    </a>
-
-</nav>
-
-
-<div class="nav-actions">
-
+    <div class="nav-actions">
     <button
         class="search-button"
         aria-label="Търсене"
-        type="button"
-    >
+        type="button">
         ⌕
     </button>
 
     <button
         aria-label="Любими"
-        type="button"
-    >
+        type="button">
         ♡
     </button>
 
     <button
         aria-label="Количка"
-        type="button"
-    >
+        type="button">
         🛒
     </button>
 
@@ -82,80 +58,62 @@
         class="menu-toggle"
         aria-label="Отвори менюто"
         aria-expanded="false"
-        type="button"
-    >
+        type="button">
         ☰
     </button>
-
 </div>
 
-</header> <!-- ========================================= SEARCH ========================================= --> <div class="search-panel" id="searchPanel" >
-<input
-    type="text"
-    id="searchInput"
-    placeholder="Търси продукт..."
-    autocomplete="off"
->
+</header>
+<!-- SEARCH -->
+<div class="search-panel" id="searchPanel" >
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Търси продукт..."
+        autocomplete="off">
 
-<button
-    id="closeSearch"
-    type="button"
-    aria-label="Затвори"
->
-    ✕
-</button>
+    <button
+        id="closeSearch"
+        type="button"
+        aria-label="Затвори">
+        ✕
+    </button>
+</div>
 
-</div> <!-- ========================================= PAGE ========================================= --> <main>
-<section class="collection page-section">
+<main>
+    <section class="collection page-section">
+        <div class="section-heading page-heading">
+            <p>LÉVIA SEARCH</p>
+            <h1>Резултати от търсене</h1>
+        </div>
 
-    <div class="section-heading page-heading">
+        <div
+            class="product-grid"
+            id="productGrid">
+        </div>
+    </section>
+</main> 
 
-        <p>LÉVIA SEARCH</p>
-
-        <h1>Резултати от търсене</h1>
-
+<footer class="footer">
+    <div class="footer-logo">
+        LÉVIA
     </div>
 
-    <div
-        class="product-grid"
-        id="productGrid"
-    ></div>
+    <div class="footer-links">
+        <a href="index.html">Начало</a>
+        <a href="women.html">Дамски</a>
+        <a href="men.html">Мъжки</a>
+        <a href="new-collection.html">Нова колекция</a>
+        <a href="contact.html">Контакти</a>
+    </div>
 
-</section>
+    <p>
+        © 2026 LÉVIA. Всички права запазени.
+    </p>
+</footer>
 
-</main> <!-- ========================================= FOOTER ========================================= --> <footer class="footer">
-<div class="footer-logo">
-    LÉVIA
-</div>
+<script src="products.js"></script>
+<script src="script.js"></script>
 
-
-<div class="footer-links">
-
-    <a href="index.html">
-        Начало
-    </a>
-
-    <a href="women.html">
-        Дамски
-    </a>
-
-    <a href="men.html">
-        Мъжки
-    </a>
-
-    <a href="new-collection.html">
-        Нова колекция
-    </a>
-
-    <a href="contact.html">
-        Контакти
-    </a>
-
-</div>
-
-
-<p>
-    © 2026 LÉVIA. Всички права запазени.
-</p>
-
-</footer> <script src="script.js"></script> </body> </html>
+</body>
+</html>

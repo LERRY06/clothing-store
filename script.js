@@ -1,68 +1,4 @@
 // =========================================
-// ДАННИ ЗА ПРОДУКТИТЕ
-// =========================================
-
-const products = {
-
-    1: {
-        name: "Минималистична рокля",
-        category: "Дамски",
-        price: "89.90 лв.",
-        image: "images/product-1.jpg",
-        sizes: ["XS", "S", "M", "L"],
-        new: true,
-        description:
-            "Елегантна и минималистична рокля, създадена за модерен ежедневен стил."
-    },
-
-    2: {
-        name: "Oversized сако",
-        category: "Дамски",
-        price: "129.90 лв.",
-        image: "images/product-2.jpg",
-        sizes: ["S", "M", "L", "XL"],
-        new: false,
-        description:
-            "Модерно oversized сако с изчистена линия и универсален силует."
-    },
-
-    3: {
-        name: "Класическа риза",
-        category: "Мъжки",
-        price: "69.90 лв.",
-        image: "images/product-3.jpg",
-        sizes: ["S", "M", "L", "XL"],
-        new: true,
-        description:
-            "Класическа риза с минималистичен дизайн, подходяща както за офиса, така и за свободното време."
-    },
-
-    4: {
-        name: "Premium тениска",
-        category: "Мъжки",
-        price: "49.90 лв.",
-        image: "images/product-4.jpg",
-        sizes: ["S", "M", "L", "XL"],
-        new: false,
-        description:
-            "Premium тениска с изчистена визия и комфортна кройка за всекидневно носене."
-    },
-
-    5: {
-        name: "Минималистична рокля 5",
-        category: "Дамски",
-        price: "89.90 лв.",
-        image: "images/product-1.jpg",
-        sizes: ["XS", "S", "M", "L"],
-        new: true,
-        description:
-            "Елегантна и минималистична рокля, създадена за модерен ежедневен стил."
-    }
-
-};
-
-
-// =========================================
 // ЛЮБИМИ
 // =========================================
 
@@ -70,7 +6,6 @@ let favorites =
     JSON.parse(
         localStorage.getItem("leviaFavorites")
     ) || [];
-
 
 // =========================================
 // ПОМОЩНИ ФУНКЦИИ
@@ -84,7 +19,6 @@ function saveFavorites() {
     );
 
 }
-
 
 function getProductId(card) {
 
@@ -109,7 +43,6 @@ function getProductId(card) {
 
 }
 
-
 function getCurrentPage() {
 
     const path =
@@ -119,9 +52,7 @@ function getCurrentPage() {
             .toLowerCase();
 
     return path || "index.html";
-
 }
-
 
 // =========================================
 // СЪЗДАВАНЕ НА ПРОДУКТОВА КАРТА
@@ -138,32 +69,33 @@ function createProductCard(id, product) {
     card.className =
         "product-card";
 
-
     card.dataset.category =
         product.category === "Дамски"
             ? "women"
             : "men";
 
-
     // -----------------------------------------
-    // IMAGE
-    // -----------------------------------------
+// IMAGE
+// -----------------------------------------
 
-    const image =
-        document.createElement("div");
+const image =
+    document.createElement("div");
 
-    image.className =
-        "product-image";
+image.className =
+    "product-image";
 
+const productImage =
+    document.createElement("img");
 
-    if (id !== "1") {
+productImage.src =
+    product.image;
 
-        image.classList.add(
-            `product-${id}`
-        );
+productImage.alt =
+    product.name;
 
-    }
-
+image.appendChild(
+    productImage
+);
 
     // -----------------------------------------
     // NEW LABEL
@@ -181,9 +113,7 @@ function createProductCard(id, product) {
             "NEW";
 
         image.appendChild(label);
-
     }
-
 
     // -----------------------------------------
     // FAVORITE
@@ -198,20 +128,16 @@ function createProductCard(id, product) {
     favoriteButton.type =
         "button";
 
-
     updateFavoriteButton(
         favoriteButton,
         id
     );
 
-
     favoriteButton.addEventListener(
         "click",
         (event) => {
-
             event.preventDefault();
             event.stopPropagation();
-
 
             if (favorites.includes(id)) {
 
@@ -220,22 +146,16 @@ function createProductCard(id, product) {
                         favoriteId =>
                             favoriteId !== id
                     );
-
             } else {
-
                 favorites.push(id);
-
             }
 
-
             saveFavorites();
-
 
             updateFavoriteButton(
                 favoriteButton,
                 id
             );
-
 
             // Ако сме на favorites.html,
             // премахваме картата веднага.
@@ -245,7 +165,6 @@ function createProductCard(id, product) {
                 "favorites.html" &&
                 !favorites.includes(id)
             ) {
-
                 const card =
                     favoriteButton.closest(
                         ".product-card"
@@ -255,25 +174,18 @@ function createProductCard(id, product) {
                     card.remove();
                 }
 
-
                 if (
                     favorites.length === 0
                 ) {
-
                     renderEmptyFavorites();
-
                 }
-
             }
-
         }
     );
-
 
     image.appendChild(
         favoriteButton
     );
-
 
     // -----------------------------------------
     // INFO
@@ -285,7 +197,6 @@ function createProductCard(id, product) {
     info.className =
         "product-info";
 
-
     const category =
         document.createElement("p");
 
@@ -295,13 +206,11 @@ function createProductCard(id, product) {
     category.textContent =
         product.category;
 
-
     const name =
         document.createElement("h3");
 
     name.textContent =
         product.name;
-
 
     const price =
         document.createElement("p");
@@ -312,20 +221,15 @@ function createProductCard(id, product) {
     price.textContent =
         product.price;
 
-
     info.appendChild(category);
     info.appendChild(name);
     info.appendChild(price);
 
-
     card.appendChild(image);
     card.appendChild(info);
 
-
     return card;
-
 }
-
 
 // =========================================
 // FAVORITE BUTTON
@@ -335,7 +239,6 @@ function updateFavoriteButton(
     button,
     id
 ) {
-
     if (favorites.includes(id)) {
 
         button.textContent = "♥";
@@ -346,9 +249,7 @@ function updateFavoriteButton(
         button.classList.add(
             "active"
         );
-
     } else {
-
         button.textContent = "♡";
 
         button.style.color =
@@ -357,11 +258,8 @@ function updateFavoriteButton(
         button.classList.remove(
             "active"
         );
-
     }
-
 }
-
 
 // =========================================
 // ОБНОВЯВАНЕ НА FAVORITE BUTTONS
@@ -395,9 +293,7 @@ function updateFavoriteButtons() {
             );
 
         });
-
 }
-
 
 // =========================================
 // PRODUCT GRID
@@ -408,7 +304,6 @@ const productGrid =
         "#productGrid"
     );
 
-
 // =========================================
 // ПОКАЗВАНЕ НА ПРОДУКТИ
 // =========================================
@@ -416,14 +311,11 @@ const productGrid =
 function renderProducts(
     filter = "all"
 ) {
-
     if (!productGrid) {
         return;
     }
 
-
     productGrid.innerHTML = "";
-
 
     Object.entries(products)
         .forEach(
@@ -434,14 +326,12 @@ function renderProducts(
                         ? "women"
                         : "men";
 
-
                 if (
                     filter === "women" &&
                     category !== "women"
                 ) {
                     return;
                 }
-
 
                 if (
                     filter === "men" &&
@@ -450,7 +340,6 @@ function renderProducts(
                     return;
                 }
 
-
                 if (
                     filter === "new" &&
                     product.new !== true
@@ -458,28 +347,22 @@ function renderProducts(
                     return;
                 }
 
-
                 const card =
                     createProductCard(
                         id,
                         product
                     );
 
-
                 productGrid.appendChild(
                     card
                 );
-
             }
         );
-
 
     updateFavoriteButtons();
 
     animateProducts();
-
 }
-
 
 // =========================================
 // ТЕКУЩА СТРАНИЦА
@@ -491,28 +374,22 @@ function renderCurrentPage() {
         return;
     }
 
-
     const page =
         getCurrentPage();
-
 
     if (page === "women.html") {
 
         renderProducts("women");
 
         return;
-
     }
-
 
     if (page === "men.html") {
 
         renderProducts("men");
 
         return;
-
     }
-
 
     if (
         page ===
@@ -522,32 +399,24 @@ function renderCurrentPage() {
         renderProducts("new");
 
         return;
-
     }
-
 
     if (page === "favorites.html") {
 
         renderFavorites();
 
         return;
-
     }
-
 
     if (page === "search.html") {
 
         renderSearchResults();
 
         return;
-
     }
 
-
     renderProducts("all");
-
 }
-
 
 // =========================================
 // SEARCH RESULTS
@@ -559,24 +428,20 @@ function renderSearchResults() {
         return;
     }
 
-
     const params =
         new URLSearchParams(
             window.location.search
         );
-
 
     const query =
         params.get("q")
             ?.toLowerCase()
             .trim() || "";
 
-
     const searchTitle =
         document.querySelector(
             "#searchTitle"
         );
-
 
     if (!query) {
 
@@ -586,7 +451,6 @@ function renderSearchResults() {
                 "Резултати от търсене";
 
         }
-
 
         productGrid.innerHTML = `
 
@@ -609,9 +473,7 @@ function renderSearchResults() {
         `;
 
         return;
-
     }
-
 
     if (searchTitle) {
 
@@ -620,9 +482,7 @@ function renderSearchResults() {
 
     }
 
-
     productGrid.innerHTML = "";
-
 
     Object.entries(products)
         .forEach(
@@ -653,12 +513,9 @@ function renderSearchResults() {
                     productGrid.appendChild(
                         card
                     );
-
                 }
-
             }
         );
-
 
     if (
         productGrid.children.length === 0
@@ -685,16 +542,12 @@ function renderSearchResults() {
         `;
 
         return;
-
     }
-
 
     updateFavoriteButtons();
 
     animateProducts();
-
 }
-
 
 // =========================================
 // FAVORITES PAGE
@@ -706,7 +559,6 @@ function renderFavorites() {
         return;
     }
 
-
     productGrid.innerHTML = "";
 
 
@@ -717,7 +569,6 @@ function renderFavorites() {
                     favorites.includes(id)
             );
 
-
     if (
         favoriteProducts.length === 0
     ) {
@@ -725,9 +576,7 @@ function renderFavorites() {
         renderEmptyFavorites();
 
         return;
-
     }
-
 
     favoriteProducts.forEach(
         ([id, product]) => {
@@ -738,7 +587,6 @@ function renderFavorites() {
                     product
                 );
 
-
             productGrid.appendChild(
                 card
             );
@@ -746,13 +594,10 @@ function renderFavorites() {
         }
     );
 
-
     updateFavoriteButtons();
 
     animateProducts();
-
 }
-
 
 // =========================================
 // ПРАЗНИ ЛЮБИМИ
@@ -763,7 +608,6 @@ function renderEmptyFavorites() {
     if (!productGrid) {
         return;
     }
-
 
     productGrid.innerHTML = `
 
@@ -794,7 +638,6 @@ function renderEmptyFavorites() {
 
 }
 
-
 // =========================================
 // SEARCH PANEL
 // =========================================
@@ -819,7 +662,6 @@ const closeSearch =
         "#closeSearch"
     );
 
-
 // =========================================
 // SEARCH BUTTON
 // =========================================
@@ -837,18 +679,12 @@ if (
                 "active"
             );
 
-
             if (searchInput) {
-
                 searchInput.focus();
-
             }
-
         }
     );
-
 }
-
 
 // =========================================
 // SEARCH → SEARCH.HTML
@@ -866,7 +702,6 @@ if (searchInput) {
                 return;
             }
 
-
             const query =
                 searchInput.value
                     .trim();
@@ -876,7 +711,6 @@ if (searchInput) {
                 return;
             }
 
-
             window.location.href =
                 `search.html?q=${encodeURIComponent(query)}`;
 
@@ -884,7 +718,6 @@ if (searchInput) {
     );
 
 }
-
 
 // =========================================
 // CLOSE SEARCH
@@ -901,21 +734,16 @@ if (closeSearch) {
                 searchPanel.classList.remove(
                     "active"
                 );
-
             }
-
 
             if (searchInput) {
 
                 searchInput.value = "";
 
             }
-
         }
     );
-
 }
-
 
 // =========================================
 // ESC
@@ -931,25 +759,18 @@ document.addEventListener(
             return;
         }
 
-
         if (searchPanel) {
 
             searchPanel.classList.remove(
                 "active"
             );
-
         }
-
 
         if (searchInput) {
-
             searchInput.value = "";
-
         }
-
     }
 );
-
 
 // =========================================
 // NAVBAR — FAVORITES
@@ -960,7 +781,6 @@ const navActions =
         ".nav-actions"
     );
 
-
 if (navActions) {
 
     const actionButtons =
@@ -968,11 +788,9 @@ if (navActions) {
             "button"
         );
 
-
     // Вторият бутон = Любими
     const favoritesButton =
         actionButtons[1];
-
 
     if (favoritesButton) {
 
@@ -982,14 +800,10 @@ if (navActions) {
 
                 window.location.href =
                     "favorites.html";
-
             }
         );
-
     }
-
 }
-
 
 // =========================================
 // MOBILE MENU
@@ -1005,7 +819,6 @@ const navLinks =
         ".nav-links"
     );
 
-
 function closeMobileMenu() {
 
     if (
@@ -1015,23 +828,18 @@ function closeMobileMenu() {
         return;
     }
 
-
     navLinks.classList.remove(
         "mobile-open"
     );
-
 
     menuToggle.setAttribute(
         "aria-expanded",
         "false"
     );
 
-
     menuToggle.textContent =
         "☰";
-
 }
-
 
 if (
     menuToggle &&
@@ -1046,27 +854,22 @@ if (
                 "mobile-open"
             );
 
-
             const isOpen =
                 navLinks.classList.contains(
                     "mobile-open"
                 );
-
 
             menuToggle.setAttribute(
                 "aria-expanded",
                 isOpen
             );
 
-
             menuToggle.textContent =
                 isOpen
                     ? "✕"
                     : "☰";
-
         }
     );
-
 
     navLinks
         .querySelectorAll("a")
@@ -1076,17 +879,12 @@ if (
                 link.addEventListener(
                     "click",
                     () => {
-
                         closeMobileMenu();
-
                     }
                 );
-
             }
         );
-
 }
-
 
 // =========================================
 // PRODUCT PAGE
@@ -1112,103 +910,123 @@ const productCategory =
         "#productCategory"
     );
 
+const productMaterial =
+    document.querySelector(
+        "#productMaterial"
+    );
+
 const productDescription =
     document.querySelector(
         "#productDescription"
     );
 
-
 if (
     productImage &&
     productName
 ) {
-
     const params =
         new URLSearchParams(
             window.location.search
         );
 
-
     const productId =
         params.get("id");
 
-
     const product =
         products[productId];
-
 
     if (product) {
 
         productImage.src =
             product.image;
 
-
         productImage.alt =
             product.name;
-
 
         productName.textContent =
             product.name;
 
-
         productPrice.textContent =
             product.price;
-
 
         productCategory.textContent =
             product.category;
 
+        if (productMaterial) {
+            productMaterial.textContent =
+            product.material || "";
+}
 
         productDescription.textContent =
             product.description;
 
-
         document.title =
             `${product.name} — LÉVIA`;
-
     }
-
 }
-
 
 // =========================================
 // SIZE SELECTION
 // =========================================
 
-const sizeButtons =
-    document.querySelectorAll(
-        ".sizes button"
+const productSizes =
+    document.querySelector(
+        "#productSizes"
     );
 
+if (productSizes) {
 
-sizeButtons.forEach(
-    button => {
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-        button.addEventListener(
-            "click",
-            () => {
+    const productId =
+        params.get("id");
 
-                sizeButtons.forEach(
-                    item => {
+    const product =
+        products[productId];
 
-                        item.classList.remove(
+    if (product && product.sizes) {
+
+        product.sizes.forEach(
+            size => {
+
+                const button =
+                    document.createElement("button");
+
+                button.type = "button";
+
+                button.textContent =
+                    size;
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        productSizes
+                            .querySelectorAll("button")
+                            .forEach(
+                                item => {
+                                    item.classList.remove(
+                                        "selected"
+                                    );
+                                }
+                            );
+
+                        button.classList.add(
                             "selected"
                         );
-
                     }
                 );
 
-
-                button.classList.add(
-                    "selected"
+                productSizes.appendChild(
+                    button
                 );
-
             }
         );
-
     }
-);
-
+}
 
 // =========================================
 // PRODUCT ANIMATION
@@ -1221,13 +1039,11 @@ function animateProducts() {
             ".product-card"
         );
 
-
     if (
         productCards.length === 0
     ) {
         return;
     }
-
 
     const observer =
         new IntersectionObserver(
@@ -1248,29 +1064,22 @@ function animateProducts() {
                             observer.unobserve(
                                 entry.target
                             );
-
                         }
-
                     }
                 );
-
             },
             {
                 threshold: 0.15
             }
         );
 
-
     productCards.forEach(
         card => {
 
             observer.observe(card);
-
         }
     );
-
 }
-
 
 // =========================================
 // НАЧАЛНО ЗАРЕЖДАНЕ

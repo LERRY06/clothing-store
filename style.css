@@ -14,6 +14,7 @@ html {
 
 body {
     font-family: "Montserrat", sans-serif;
+    font-weight: 400;
     background: #f8f7f4;
     color: #171717;
 }
@@ -23,10 +24,10 @@ a {
     color: inherit;
 }
 
-button {
+button,
+input {
     font-family: inherit;
 }
-
 
 /* =========================================
    NAVIGATION
@@ -134,7 +135,6 @@ button {
     transform: translateY(-2px);
 }
 
-
 /* =========================================
    HERO
 ========================================= */
@@ -173,14 +173,18 @@ button {
 }
 
 .hero h1 {
+    font-family: "Playfair Display", serif;
+
     font-size: clamp(55px, 7vw, 100px);
     line-height: 0.95;
-    font-weight: 500;
+
+    font-weight: 400;
     letter-spacing: -4px;
 }
 
 .hero h1 span {
     display: block;
+
     font-style: italic;
     font-weight: 300;
 }
@@ -248,12 +252,16 @@ button {
     letter-spacing: 2px;
 }
 
+.section-heading h1,
 .section-heading h2 {
+    font-family: "Playfair Display", serif;
+
     font-size: 48px;
     font-weight: 400;
+
+    line-height: 1.05;
     letter-spacing: -2px;
 }
-
 
 /* =========================================
    CATEGORIES
@@ -261,6 +269,7 @@ button {
 
 .category-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
 
     gap: 25px;
@@ -316,6 +325,8 @@ button {
 }
 
 .category-overlay h3 {
+    font-family: "Playfair Display", serif;
+
     font-size: 36px;
     font-weight: 400;
 
@@ -324,10 +335,10 @@ button {
 
 .category-overlay span {
     font-size: 13px;
+
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
 
 /* =========================================
    PRODUCTS
@@ -349,6 +360,7 @@ button {
     border-bottom: 1px solid #171717;
 
     font-size: 13px;
+
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -356,42 +368,69 @@ button {
 .product-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 22px;
 }
 
 .product-card {
+    display: block;
+
+    color: inherit;
+
     cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
 }
 
+.product-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card.search-hidden {
+    display: none;
+}
+
+/* =========================================
+   PRODUCT IMAGE
+   Изображението идва от products.js
+========================================= */
+
 .product-image {
+    width: 100%;
     height: 480px;
 
     position: relative;
 
-    background:
-        url("images/product-1.jpg")
-        center / cover;
-
     overflow: hidden;
+
+    background: #e5e2dc;
 }
 
-.product-2 {
-    background-image:
-        url("images/product-2.jpg");
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
 }
 
-.product-3 {
-    background-image:
-        url("images/product-3.jpg");
+.product-card:hover .product-image img {
+    transform: scale(1.05);
 }
 
-.product-4 {
-    background-image:
-        url("images/product-4.jpg");
-}
+/* =========================================
+   PRODUCT LABEL
+========================================= */
 
 .product-label {
     position: absolute;
@@ -399,21 +438,31 @@ button {
     top: 15px;
     left: 15px;
 
+    z-index: 2;
+
     padding: 7px 10px;
 
     background: white;
 
+    font-family: "Montserrat", sans-serif;
+
     font-size: 10px;
-    font-weight: bold;
+    font-weight: 700;
 
     letter-spacing: 1px;
 }
+
+/* =========================================
+   FAVORITE
+========================================= */
 
 .favorite-button {
     position: absolute;
 
     top: 15px;
     right: 15px;
+
+    z-index: 3;
 
     width: 40px;
     height: 40px;
@@ -427,12 +476,18 @@ button {
 
     cursor: pointer;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
 }
 
 .favorite-button:hover {
     transform: scale(1.1);
 }
+
+/* =========================================
+   PRODUCT INFO
+========================================= */
 
 .product-info {
     padding-top: 18px;
@@ -440,6 +495,8 @@ button {
 
 .product-category {
     color: #777;
+
+    font-family: "Montserrat", sans-serif;
 
     font-size: 11px;
 
@@ -450,17 +507,22 @@ button {
 }
 
 .product-info h3 {
-    font-size: 17px;
-    font-weight: 400;
-
     margin-bottom: 8px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    letter-spacing: 0;
 }
 
 .product-price {
+    font-family: "Montserrat", sans-serif;
+
     font-size: 15px;
     font-weight: 600;
 }
-
 
 /* =========================================
    PROMO
@@ -496,20 +558,23 @@ button {
 
 .promo-content > p {
     font-size: 12px;
+
     letter-spacing: 3px;
 
     margin-bottom: 25px;
 }
 
 .promo h2 {
+    font-family: "Playfair Display", serif;
+
     font-size: clamp(45px, 6vw, 75px);
+
     line-height: 1;
 
     font-weight: 400;
 
     margin-bottom: 40px;
 }
-
 
 /* =========================================
    FOOTER
@@ -526,8 +591,10 @@ button {
 }
 
 .footer-logo {
+    font-family: "Montserrat", sans-serif;
+
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 700;
 
     letter-spacing: 6px;
 
@@ -561,147 +628,6 @@ button {
     font-size: 12px;
 }
 
-
-/* =========================================
-   RESPONSIVE — TABLET
-========================================= */
-
-@media (max-width: 900px) {
-
-    .nav-links {
-        gap: 15px;
-    }
-
-    .nav-links a {
-        font-size: 11px;
-    }
-
-    .product-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .product-image {
-        height: 450px;
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE — MOBILE
-========================================= */
-
-@media (max-width: 650px) {
-
-    .navbar {
-        height: 70px;
-        padding: 0 5%;
-    }
-
-    .logo {
-        font-size: 22px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .nav-actions {
-        gap: 8px;
-    }
-
-    .hero {
-        min-height: 600px;
-
-        padding: 60px 7%;
-
-        background-position: center;
-    }
-
-    .hero h1 {
-        font-size: 58px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-    }
-
-    .categories,
-    .collection {
-        padding: 75px 5%;
-    }
-
-    .section-heading h2 {
-        font-size: 38px;
-    }
-
-    .category-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .category-card {
-        height: 450px;
-    }
-
-    .collection-heading {
-        display: block;
-    }
-
-    .view-all {
-        display: inline-block;
-        margin-top: 20px;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr 1fr;
-
-        gap: 12px;
-    }
-
-    .product-image {
-        height: 300px;
-    }
-
-    .product-info h3 {
-        font-size: 14px;
-    }
-
-    .promo {
-        min-height: 450px;
-    }
-
-    .footer-links {
-        flex-wrap: wrap;
-    }
-}
-
-/* =========================================
-   PRODUCT ANIMATION
-========================================= */
-
-.product-card {
-    opacity: 0;
-    transform: translateY(30px);
-
-    transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-}
-
-.product-card {
-    display: block;
-    color: inherit;
-}
-
-.product-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.product-card.search-hidden {
-    display: none;
-}
-
 /* =========================================
    PRODUCT PAGE
 ========================================= */
@@ -710,6 +636,7 @@ button {
     min-height: 750px;
 
     display: grid;
+
     grid-template-columns: 1.1fr 0.9fr;
 
     gap: 80px;
@@ -730,9 +657,9 @@ button {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
+
+    object-fit: cover;
 }
 
 .product-details {
@@ -753,19 +680,25 @@ button {
 }
 
 .product-details h1 {
+    margin-bottom: 20px;
+
+    font-family: "Playfair Display", serif;
+
     font-size: 48px;
     line-height: 1.05;
 
     font-weight: 400;
 
-    margin-bottom: 20px;
+    letter-spacing: -2px;
 }
 
 .product-page-price {
+    margin-bottom: 35px;
+
+    font-family: "Montserrat", sans-serif;
+
     font-size: 20px;
     font-weight: 600;
-
-    margin-bottom: 35px;
 }
 
 .product-description {
@@ -776,6 +709,35 @@ button {
 
     margin-bottom: 45px;
 }
+
+/* =========================================
+   MATERIAL
+========================================= */
+
+.material-section {
+    margin-bottom: 35px;
+}
+
+.material-title {
+    margin-bottom: 12px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.material-value {
+    color: #666;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   SIZE
+========================================= */
 
 .size-section {
     margin-bottom: 30px;
@@ -800,6 +762,7 @@ button {
 
 .sizes {
     display: flex;
+
     gap: 10px;
 }
 
@@ -815,16 +778,22 @@ button {
 
     transition:
         background 0.3s ease,
-        color 0.3s ease;
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .sizes button:hover,
 .sizes button.selected {
     background: #171717;
+
     color: white;
 
     border-color: #171717;
 }
+
+/* =========================================
+   ADD TO CART
+========================================= */
 
 .add-to-cart {
     width: 100%;
@@ -835,6 +804,8 @@ button {
 
     background: #171717;
     color: white;
+
+    font-family: "Montserrat", sans-serif;
 
     font-size: 13px;
     font-weight: 600;
@@ -850,6 +821,10 @@ button {
 .add-to-cart:hover {
     background: #8a6a52;
 }
+
+/* =========================================
+   PRODUCT INFO LIST
+========================================= */
 
 .product-info-list {
     margin-top: 45px;
@@ -872,34 +847,6 @@ button {
     color: #777;
 }
 
-
-/* =========================================
-   PRODUCT PAGE — MOBILE
-========================================= */
-
-@media (max-width: 800px) {
-
-    .product-page {
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-
-        padding: 50px 5%;
-    }
-
-    .product-large-image {
-        height: 550px;
-    }
-
-    .product-details {
-        padding-top: 0;
-    }
-
-    .product-details h1 {
-        font-size: 38px;
-    }
-}
-
 /* =========================================
    MOBILE MENU
 ========================================= */
@@ -908,67 +855,12 @@ button {
     display: none;
 
     border: none;
+
     background: transparent;
 
     font-size: 25px;
 
     cursor: pointer;
-}
-
-
-/* =========================================
-   MOBILE NAVIGATION
-========================================= */
-
-@media (max-width: 650px) {
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .navbar {
-        position: relative;
-    }
-
-    .nav-links {
-        position: absolute;
-
-        top: 70px;
-        left: 0;
-
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 0;
-
-        background: #f8f7f4;
-
-        border-bottom: 1px solid #ddd;
-
-        max-height: 0;
-        overflow: hidden;
-
-        opacity: 0;
-
-        transition:
-            max-height 0.4s ease,
-            opacity 0.3s ease;
-    }
-
-    .nav-links a {
-        padding: 18px 6%;
-
-        border-bottom: 1px solid #e5e3df;
-    }
-
-    .nav-links.mobile-open {
-        max-height: 400px;
-        opacity: 1;
-    }
-
 }
 
 /* =========================================
@@ -977,12 +869,15 @@ button {
 
 .benefits {
     padding: 110px 6%;
+
     background: #f8f7f4;
 }
 
 .benefits-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 50px;
 }
 
@@ -1009,10 +904,12 @@ button {
 }
 
 .benefit h3 {
-    font-size: 17px;
-    font-weight: 500;
-
     margin-bottom: 15px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 17px;
+    font-weight: 400;
 }
 
 .benefit p {
@@ -1022,284 +919,44 @@ button {
     line-height: 1.7;
 }
 
-
-/* =========================================
-   BENEFITS — MOBILE
-========================================= */
-
-@media (max-width: 800px) {
-
-    .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 45px 25px;
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .benefits {
-        padding: 75px 5%;
-    }
-
-    .benefits-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-/* =========================================
-   TYPOGRAPHY SYSTEM
-========================================= */
-
-body {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    color: #171717;
-}
-
-/* Основни заглавия */
-
-h1,
-h2,
-h3 {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-    color: #171717;
-}
-
-/* Големи заглавия на секции */
-
-.section-heading h1,
-.section-heading h2 {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-    letter-spacing: -2px;
-}
-
-/* Hero */
-
-.hero h1 {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-    letter-spacing: -4px;
-}
-
-/* Заглавия на категории */
-
-.category-overlay h3 {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-}
-
-/* Имена на продукти */
-
-.product-info h3 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    letter-spacing: 0;
-}
-
-/* Продуктова страница */
-
-.product-details h1 {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-    letter-spacing: -2px;
-}
-
-/* Промо */
-
-.promo h2 {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-}
-
-/* Контакти */
-
-.contact-page .section-heading h1 {
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-}
-
-/* Навигация и бутони */
-
-.nav-links a,
-.hero-button,
-.view-all,
-.product-label,
-.product-category,
-.product-price,
-.product-page-price,
-.add-to-cart,
-.footer-links,
-.contact-content h3 {
-    font-family: "Montserrat", sans-serif;
-}
-
 /* =========================================
    CONTACTS
 ========================================= */
 
 .contact-section {
     padding: 100px 6%;
+
     background: #eeece8;
 }
 
 .contact-content {
     max-width: 1000px;
+
     margin: 50px auto 0;
 
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 40px;
 
     text-align: center;
 }
 
 .contact-content h3 {
+    margin-bottom: 12px;
+
     font-family: "Montserrat", sans-serif;
+
     font-size: 14px;
     font-weight: 600;
-    margin-bottom: 12px;
 }
 
 .contact-content p {
     color: #777;
+
     font-size: 14px;
     line-height: 1.7;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 650px) {
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-}
-
-/* =========================================
-   SEARCH
-========================================= */
-
-.search-panel {
-    width: 100%;
-
-    height: 80px;
-
-    padding: 0 6%;
-
-    display: none;
-    align-items: center;
-    gap: 20px;
-
-    background: #f8f7f4;
-
-    border-bottom: 1px solid #ddd;
-
-    position: sticky;
-
-    z-index: 100;
-
-    animation: searchOpen 0.25s ease;
-}
-
-
-/* Показва се само когато е активна */
-
-.search-panel.active {
-    display: flex;
-}
-
-
-/* Поле */
-
-.search-panel input {
-    flex: 1;
-
-    height: 45px;
-
-    border: none;
-    border-bottom: 1px solid #aaa;
-
-    outline: none;
-
-    background: transparent;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 15px;
-
-    color: #171717;
-}
-
-.search-panel input::placeholder {
-    color: #888;
-}
-
-
-/* Бутон X */
-
-.search-panel button {
-    width: 40px;
-    height: 40px;
-
-    border: none;
-
-    background: transparent;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-    color: #171717;
-
-    transition: opacity 0.3s ease;
-}
-
-.search-panel button:hover {
-    opacity: 0.55;
-}
-
-
-/* =========================================
-   SEARCH ANIMATION
-========================================= */
-
-@keyframes searchOpen {
-
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =========================================
-   SEARCH — MOBILE
-========================================= */
-
-@media (max-width: 650px) {
-
-    .search-panel {
-
-        height: 70px;
-
-        padding: 0 5%;
-
-    }
-
 }
 
 /* =========================================
@@ -1314,11 +971,9 @@ h3 {
     background: #f8f7f4;
 }
 
-
-/* Заглавие */
-
 .contact-page .section-heading {
     max-width: 700px;
+
     margin: 0 auto 70px;
 
     text-align: center;
@@ -1347,9 +1002,6 @@ h3 {
     letter-spacing: -2px;
 }
 
-
-/* Контактни карти */
-
 .contact-page .contact-content {
     max-width: 1100px;
 
@@ -1364,7 +1016,6 @@ h3 {
     text-align: center;
 }
 
-
 .contact-page .contact-content > div {
     padding: 50px 30px;
 
@@ -1377,15 +1028,11 @@ h3 {
         background 0.3s ease;
 }
 
-
 .contact-page .contact-content > div:hover {
     transform: translateY(-6px);
 
     background: #e8e5df;
 }
-
-
-/* Икони */
 
 .contact-icon {
     width: 60px;
@@ -1406,34 +1053,23 @@ h3 {
     font-size: 22px;
 }
 
-
-/* Заглавия */
-
 .contact-page .contact-content h3 {
     margin-bottom: 15px;
 
     font-family: "Playfair Display", serif;
 
     font-size: 24px;
-
     font-weight: 400;
 
     color: #171717;
 }
 
-
-/* Информация */
-
 .contact-page .contact-content p {
     color: #777;
 
     font-size: 14px;
-
     line-height: 1.8;
 }
-
-
-/* Линкове */
 
 .contact-page .contact-content a {
     color: #777;
@@ -1445,11 +1081,6 @@ h3 {
     color: #8a6a52;
 }
 
-
-/* =========================================
-   CONTACT PAGE — ADDITIONAL INFO
-========================================= */
-
 .contact-intro {
     max-width: 650px;
 
@@ -1460,16 +1091,202 @@ h3 {
     color: #777;
 
     font-size: 15px;
-
     line-height: 1.8;
 }
 
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-panel {
+    width: 100%;
+    height: 80px;
+
+    padding: 0 6%;
+
+    display: none;
+    align-items: center;
+
+    gap: 20px;
+
+    background: #f8f7f4;
+
+    border-bottom: 1px solid #ddd;
+
+    position: sticky;
+
+    z-index: 100;
+
+    animation: searchOpen 0.25s ease;
+}
+
+.search-panel.active {
+    display: flex;
+}
+
+.search-panel input {
+    flex: 1;
+
+    height: 45px;
+
+    border: none;
+
+    border-bottom: 1px solid #aaa;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 15px;
+
+    color: #171717;
+}
+
+.search-panel input::placeholder {
+    color: #888;
+}
+
+.search-panel button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    color: #171717;
+
+    transition: opacity 0.3s ease;
+}
+
+.search-panel button:hover {
+    opacity: 0.55;
+}
 
 /* =========================================
-   CONTACT PAGE — MOBILE
+   SEARCH ANIMATION
+========================================= */
+
+@keyframes searchOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================================
+   PAGE HEADINGS
+========================================= */
+
+.page-section {
+    padding-top: 100px;
+    padding-bottom: 110px;
+}
+
+.page-heading {
+    max-width: 900px;
+
+    margin-bottom: 60px;
+}
+
+.page-heading p {
+    margin-bottom: 14px;
+
+    color: #8a6a52;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.page-heading h1 {
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(48px, 6vw, 72px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-image {
+        height: 450px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 45px 25px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE — PRODUCT PAGE
 ========================================= */
 
 @media (max-width: 800px) {
+
+    .product-page {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding: 50px 5%;
+    }
+
+    .product-large-image {
+        height: 550px;
+    }
+
+    .product-details {
+        padding-top: 0;
+
+        max-width: none;
+    }
+
+    .product-details h1 {
+        font-size: 38px;
+    }
 
     .contact-page {
         padding: 75px 5%;
@@ -1488,62 +1305,159 @@ h3 {
     .contact-page .contact-content > div {
         padding: 40px 25px;
     }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .contact-page .section-heading h1 {
-        font-size: 48px;
-    }
-
 }
 
 /* =========================================
-   PAGE HEADINGS
-========================================= */
-
-.page-section {
-    padding-top: 100px;
-    padding-bottom: 110px;
-}
-
-.page-heading {
-    max-width: 900px;
-    margin-bottom: 60px;
-}
-
-.page-heading p {
-    margin-bottom: 14px;
-
-    color: #8a6a52;
-
-    font-family: "Montserrat", sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.page-heading h1 {
-    margin: 0;
-
-    font-family: "Playfair Display", serif;
-    font-size: clamp(48px, 6vw, 72px);
-    font-weight: 400;
-
-    line-height: 1;
-    letter-spacing: -2px;
-}
-
-
-/* =========================================
-   PAGE HEADINGS — MOBILE
+   RESPONSIVE — MOBILE
 ========================================= */
 
 @media (max-width: 650px) {
+
+    .navbar {
+        height: 70px;
+
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        background: #f8f7f4;
+
+        border-bottom: 1px solid #ddd;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease;
+    }
+
+    .nav-links a {
+        padding: 18px 6%;
+
+        border-bottom: 1px solid #e5e3df;
+    }
+
+    .nav-links.mobile-open {
+        max-height: 400px;
+
+        opacity: 1;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+
+    .hero {
+        min-height: 600px;
+
+        padding: 60px 7%;
+
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .categories,
+    .collection {
+        padding: 75px 5%;
+    }
+
+    .section-heading h1,
+    .section-heading h2 {
+        font-size: 38px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        height: 450px;
+    }
+
+    .collection-heading {
+        display: block;
+    }
+
+    .view-all {
+        display: inline-block;
+
+        margin-top: 20px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 300px;
+    }
+
+    .product-info h3 {
+        font-size: 14px;
+    }
+
+    .promo {
+        min-height: 450px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+
+    .benefits {
+        padding: 75px 5%;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .search-panel {
+        height: 70px;
+
+        padding: 0 5%;
+    }
 
     .page-section {
         padding-top: 75px;
@@ -1556,6 +1470,21 @@ h3 {
 
     .page-heading h1 {
         font-size: 46px;
+    }
+}
+
+/* =========================================
+   VERY SMALL SCREENS
+========================================= */
+
+@media (max-width: 500px) {
+
+    .contact-page .section-heading h1 {
+        font-size: 48px;
+    }
+
+    .product-large-image {
+        height: 480px;
     }
 
 }
