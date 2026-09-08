@@ -7,7 +7,7 @@ const products = {
     1: {
         name: "Минималистична рокля",
         category: "Дамски",
-        price: "89.90 лв.",
+        price: "89.90 EUR",
         image: "images/product-1.jpg",
         sizes: ["XS", "S", "M", "L"],
         new: true,
@@ -19,7 +19,7 @@ const products = {
     2: {
         name: "Oversized яке",
         category: "Мъжки",
-        price: "129.90 лв.",
+        price: "129.90 EUR",
         image: "images/product-2.jpg",
         sizes: ["S", "M", "L", "XL"],
         new: false,
@@ -31,7 +31,7 @@ const products = {
     3: {
         name: "Спортен екип",
         category: "Дамски",
-        price: "69.90 лв.",
+        price: "69.90 EUR",
         image: "images/product-3.jpg",
         sizes: ["S", "M", "L", "XL"],
         new: true,
@@ -43,7 +43,7 @@ const products = {
     4: {
         name: "Oversized сако",
         category: "Мъжки",
-        price: "49.90 лв.",
+        price: "49.90 EUR",
         image: "images/product-4.jpg",
         sizes: ["S", "M", "L", "XL"],
         new: false,
@@ -55,7 +55,7 @@ const products = {
     5: {
         name: "Минималистична рокля 5",
         category: "Дамски",
-        price: "89.90 лв.",
+        price: "89.90 EUR",
         image: "images/product-1.jpg",
         sizes: ["XS", "S", "M", "L"],
         new: true,
