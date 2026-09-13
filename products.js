@@ -23,7 +23,7 @@ const products = {
         image: "images/product-2.jpg",
         sizes: ["S", "M", "L", "XL"],
         new: false,
-        material: "100% памук",
+        material: "90% памук, 10% еластан",
         description:
             "Модерно oversized сако с изчистена линия и универсален силует."
     },
@@ -37,7 +37,7 @@ const products = {
         new: true,
         material: "95% памук, 5% еластан",
         description:
-            "Класическа риза с минималистичен дизайн, подходяща както за офиса, така и за свободното време."
+            "Спортен екип, подходящ както за офиса, така и за свободното време."
     },
 
     4: {
@@ -49,7 +49,7 @@ const products = {
         new: false,
         material: "100% памук",
         description:
-            "Premium тениска с изчистена визия и комфортна кройка за всекидневно носене."
+            "Oversized сако с изчистена визия и комфортна кройка за всекидневно носене."
     },
 
     5: {
@@ -65,14 +65,14 @@ const products = {
     },
 
     6: {
-        name: "Testing products.js",
+        name: "Бежова рокля",
         category: "Дамски",
-        price: "1 EUR",
+        price: "66.66 EUR",
         image: "images/hero.jpg",
         sizes: ["M"],
         new: true,
-        material: "100% памук",
+        material: "90% памук, 10% еластан",
         description:
-            "Testing products.js"
+            "Бежова рокля за ежедневието."
     },
 };

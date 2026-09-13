@@ -755,7 +755,7 @@ input {
 .size-title span:last-child {
     color: #777;
 
-    text-decoration: underline;
+    /* text-decoration: underline; */
 
     cursor: pointer;
 }
@@ -782,14 +782,14 @@ input {
         border-color 0.3s ease;
 }
 
-.sizes button:hover,
+/* .sizes button:hover,
 .sizes button.selected {
     background: #171717;
 
     color: white;
 
     border-color: #171717;
-}
+} */
 
 /* =========================================
    ADD TO CART
